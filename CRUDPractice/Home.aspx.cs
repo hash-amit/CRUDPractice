@@ -52,7 +52,12 @@ namespace CRUDPractice
             cmd.ExecuteNonQuery();
             _connection.Close();
             Session.Abandon();
-            Response.Redirect("Registration.aspx");
+            Response.Redirect("Registration.aspx?msg=" + "You account has been deleted successfully!");
+        }
+
+        protected void ChangePass_btn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ChangePassword.aspx");
         }
     }
 }

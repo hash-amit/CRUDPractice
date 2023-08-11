@@ -25,6 +25,10 @@ namespace CRUDPractice
                 city_ddl.Items.Insert(0, new ListItem("Select City", "0"));
                 city_ddl.Enabled = false;
                 BindHobbies();
+                if (!string.IsNullOrEmpty(Request.QueryString["msg"]))
+                {
+                    msg_lbl.Text = Request.QueryString["msg"].ToString();
+                }
             }
         }
 
@@ -236,9 +240,29 @@ namespace CRUDPractice
             return true;
         }
 
+        public bool CheckDuplicacy()
+        {
+            SqlCommand cmd = new SqlCommand("spCheckDuplicacy", _connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@email", email_txt.Text);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);    
+            _connection.Close();
+            if (dataTable.Rows.Count > 0)
+            {
+                msg_lbl.Text = "Oops! this email is already registered!";
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         protected void Create_btn_Click(object sender, EventArgs e)
         {
-            if (CheckBlank() && CheckFormat())
+            if (CheckBlank() && CheckFormat() && CheckDuplicacy())
             {
                 _connection.Open();
                 SqlCommand cmd = new SqlCommand("spInsertData", _connection);

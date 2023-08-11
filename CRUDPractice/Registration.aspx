@@ -48,7 +48,7 @@
 
         .radioButtons table {
             background: white;
-            width: 245.56px;
+            width: 247.55px;
             padding: 0px;
             height: 35px;
             border-radius: 4px;
@@ -84,7 +84,7 @@
         }
 
         .selectBox select {
-            width: 245.56px;
+            width: 247.55px;
             height: 35Px;
             border: 0px;
             border-radius: 4px;
@@ -104,16 +104,29 @@
 
         center span {
             font-family: math;
-            color: red;
+            color: #ffeb3b;
         }
 
         .lower_container center a {
             display: block;
-            color: white;
+            color: #f2ff41;
             text-decoration: none;
             margin-top: 5px;
             font-family: monospace;
             font-size: 16px;
+        }
+
+        .footer {
+            position: absolute; /* Set position to absolute */
+            bottom: 0; /* Position the footer at the bottom */
+            width: 100%; /* Ensure the footer spans the entire width */
+        }
+
+        .footer p {
+            color: white;
+            font-family: monospace;
+            font-size: larger;
+            text-align: center;
         }
     </style>
 </head>
@@ -182,10 +195,13 @@
             
             <div class="lower_container">
                 <center>
-                    <a href="Login.aspx">If you have an account already<br>Click here</a>
+                    <a href="Login.aspx">Login</a>
                 </center>
             </div>
         </div>
     </form>
+    <div class="footer">
+        <p>©Amit Kumar 2023. All rights reserved.</p>
+    </div>
 </body>
 </html>

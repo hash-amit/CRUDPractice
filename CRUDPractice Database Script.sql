@@ -3,7 +3,7 @@ CREATE DATABASE dbCRUDPractice
 USE dbCRUDPractice
 
 SELECT * FROM tblUser
-
+TRUNCATE TABLE tblUser
 CREATE TABLE tblUser
 (
 	ID INT PRIMARY KEY IDENTITY,
@@ -179,4 +179,13 @@ CREATE PROC spDeleteRecord
 as
 begin
 	select * from tblUser where ID = @id
+end;
+
+CREATE PROC spCheckDuplicacy
+(
+	@email varchar(60)
+)
+as
+begin
+	select * from tblUser where Email = @email
 end;

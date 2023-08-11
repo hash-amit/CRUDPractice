@@ -32,12 +32,6 @@
             height: 600px;
         }
 
-/*        table {
-            border: 1px solid white;
-            border-radius: 9px;
-            padding: 3px;
-        }*/
-
         .inputTextBox input {
             width: 240.56px;
             height: 35px;
@@ -68,7 +62,7 @@
 
         center span {
             font-family: math;
-            color: red;
+            color: #ffeb3b;
         }
 
         .lower_container center a {
@@ -78,6 +72,19 @@
             margin-top: 5px;
             font-family: monospace;
             font-size: 16px;
+        }
+
+        .footer {
+            position: absolute; /* Set position to absolute */
+            bottom: 0; /* Position the footer at the bottom */
+            width: 100%; /* Ensure the footer spans the entire width */
+        }
+
+        .footer p {
+            color: white;
+            font-family: monospace;
+            font-size: larger;
+            text-align: center;
         }
     </style>
 </head>
@@ -105,22 +112,19 @@
 
                 <tr>
                     <td class="loginButton">
-                        <asp:Button ID="Create_btn" Text="Login Account" runat="server" OnClick="Create_btn_Click"/></td>
+                        <asp:Button ID="Create_btn" Text="Login Account" runat="server" OnClick="Create_btn_Click" /></td>
                 </tr>
             </table>
 
             <div class="lower_container">
                 <center>
-                    <a href="ChangePassword.aspx">Forgot Passworde</a>
-                </center>
-            </div>
-
-            <div class="lower_container">
-                <center>
-                    <a href="Registration.aspx">If you don't have an account<br>Click here</a>
+                    <a href="Registration.aspx">Create New Account</a>
                 </center>
             </div>
         </div>
     </form>
+    <div class="footer">
+        <p>©Amit Kumar 2023. All rights reserved.</p>
+    </div>
 </body>
 </html>
