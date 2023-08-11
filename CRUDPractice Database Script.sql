@@ -149,3 +149,34 @@ BEGIN
 	INSERT INTO tblUser(Name, Email, Gender, Country, State, City, Hobbies, Password)
 	Values(@name, @email, @gender, @country, @state, @city, @hobbies, @pass)
 END;
+
+CREATE PROC spCheckLoginCredentials
+(
+	@email VARCHAR(60),
+	@password VARCHAR(60)
+)
+AS
+BEGIN
+	SELECT * FROM tblUser WHERE Email = @email AND Password = @password
+END;
+
+Alter PROC spGetUserRecord
+(
+	@id int
+)
+AS
+BEGIN
+	SELECT * FROM tblUser
+	Join tblGender on Gender = GID
+	Join tblCountry on Country = CID
+	Join tblState on State = SID
+	Join tblCity on City = CityID
+	WHERE ID = @id
+END;
+
+CREATE PROC spDeleteRecord
+( @id int )
+as
+begin
+	select * from tblUser where ID = @id
+end;

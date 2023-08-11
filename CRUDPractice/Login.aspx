@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="CRUDPractice.Registration" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CRUDPractice.Login" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Create an account</title>
+    <title>Login Account</title>
     <style>
         body {
             margin: 0px;
@@ -32,7 +32,7 @@
             height: 600px;
         }
 
-        /*table {
+/*        table {
             border: 1px solid white;
             border-radius: 9px;
             padding: 3px;
@@ -46,31 +46,7 @@
             border-radius: 4px;
         }
 
-        .radioButtons table {
-            background: white;
-            width: 245.56px;
-            padding: 0px;
-            height: 35px;
-            border-radius: 4px;
-        }
-
-        .checkBox table {
-            padding: 0px;
-            width: 247.56px;
-            background: white;
-            border-radius: 4px;
-        }
-
-        .hobby {
-            display: flex;
-            justify-content: center;
-            background: white;
-            border: 0px;
-            border-radius: 4px;
-            width: 245.56px;
-        }
-
-        .saveButton input {
+        .loginButton input {
             padding: 0px;
             width: -webkit-fill-available;
             height: 30px;
@@ -81,18 +57,6 @@
             font-family: monospace;
             font-size: large;
             font-weight: bolder;
-        }
-
-        .selectBox select {
-            width: 245.56px;
-            height: 35Px;
-            border: 0px;
-            border-radius: 4px;
-        }
-
-        .message {
-            color: white;
-            text-align: center;
         }
 
         h2{
@@ -109,7 +73,7 @@
 
         .lower_container center a {
             display: block;
-            color: white;
+            color: #f2ff41;
             text-decoration: none;
             margin-top: 5px;
             font-family: monospace;
@@ -123,49 +87,14 @@
         <div class="container">
             <div class="msg_container">
                 <center>
-                    <h2>Create your account</h2>
+                    <h2>Login Account</h2>
                     <asp:Label ID="msg_lbl" runat="server" Text=""></asp:Label>
                 </center>
             </div>
             <table>
-                
-                <tr>
-                    <td class="inputTextBox">
-                        <asp:TextBox ID="name_txt" placeholder="Full Name" runat="server"></asp:TextBox></td>
-                </tr>
-
                 <tr>
                     <td class="inputTextBox">
                         <asp:TextBox ID="email_txt" placeholder="example@email.com" TextMode="Email" runat="server"></asp:TextBox></td>
-                </tr>
-
-                <tr>
-                    <td class="radioButtons">
-                        <asp:RadioButtonList ID="gender_rbl" runat="server" RepeatColumns="3"></asp:RadioButtonList></td>
-                </tr>
-
-                <tr>
-                    <td class="selectBox">
-                        <asp:DropDownList ID="country_ddl" runat="server" OnSelectedIndexChanged="country_ddl_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList></td>
-                </tr>
-
-                <tr>
-                    <td class="selectBox">
-                        <asp:DropDownList ID="state_ddl" runat="server" OnSelectedIndexChanged="state_ddl_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList></td>
-                </tr>
-
-                <tr>
-                    <td class="selectBox">
-                        <asp:DropDownList ID="city_ddl" runat="server"></asp:DropDownList></td>
-                </tr>
-
-                <tr>
-                    <td class="hobby">Check Hobbies</td>
-                </tr>
-
-                <tr>
-                    <td class="checkBox">
-                        <asp:CheckBoxList ID="hobbies_cbl" runat="server" RepeatColumns="3"></asp:CheckBoxList></td>
                 </tr>
 
                 <tr>
@@ -175,14 +104,20 @@
 
 
                 <tr>
-                    <td class="saveButton">
-                        <asp:Button ID="Create_btn" Text="Create Account" runat="server" OnClick="Create_btn_Click" /></td>
+                    <td class="loginButton">
+                        <asp:Button ID="Create_btn" Text="Login Account" runat="server" OnClick="Create_btn_Click"/></td>
                 </tr>
             </table>
-            
+
             <div class="lower_container">
                 <center>
-                    <a href="Login.aspx">If you have an account already<br>Click here</a>
+                    <a href="ChangePassword.aspx">Forgot Passworde</a>
+                </center>
+            </div>
+
+            <div class="lower_container">
+                <center>
+                    <a href="Registration.aspx">If you don't have an account<br>Click here</a>
                 </center>
             </div>
         </div>
