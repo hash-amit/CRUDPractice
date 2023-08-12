@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Create an account</title>
+    <title>Create your account</title>
     <style>
         body {
             margin: 0px;

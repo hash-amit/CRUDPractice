@@ -260,6 +260,21 @@ namespace CRUDPractice
             }
         }
 
+        public void ClearForm()
+        {
+            name_txt.Text = string.Empty;
+            email_txt.Text = string.Empty;
+            gender_rbl.ClearSelection();
+            country_ddl.SelectedIndex = 0;
+            state_ddl.SelectedIndex = 0;
+            state_ddl.Enabled = false;
+            city_ddl.SelectedIndex = 0;
+            city_ddl.Enabled = false;
+            hobbies_cbl.ClearSelection();
+            pass_txt.Text = string.Empty;
+
+        }
+
         protected void Create_btn_Click(object sender, EventArgs e)
         {
             if (CheckBlank() && CheckFormat() && CheckDuplicacy())
@@ -275,9 +290,13 @@ namespace CRUDPractice
                 cmd.Parameters.AddWithValue("@city", city_ddl.SelectedValue);
                 cmd.Parameters.AddWithValue("@hobbies", GetHobbies());
                 cmd.Parameters.AddWithValue("@pass", pass_txt.Text);
-                cmd.ExecuteNonQuery();
+                int rows = cmd.ExecuteNonQuery();
                 _connection.Close();
-                msg_lbl.Text = "Registered Successfully!";
+                if (rows > 0)
+                {
+                    msg_lbl.Text = "Registered Successfully!";
+                    ClearForm();
+                }
             }
         }
     }

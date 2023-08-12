@@ -57,6 +57,12 @@ namespace CRUDPractice
             }
         }
 
+        public void ClearForm()
+        {
+            email_txt.Text = string.Empty;
+            pass_txt.Text = string.Empty;
+        }
+
         protected void Create_btn_Click(object sender, EventArgs e)
         {
             if (CheckBlank() && VerifyUser())
@@ -73,6 +79,7 @@ namespace CRUDPractice
                 if (dt.Rows.Count > 0)
                 {
                     Session["user_id"] = dt.Rows[0]["ID"].ToString();
+                    ClearForm();
                     Response.Redirect("Home.aspx");
                 }
             }

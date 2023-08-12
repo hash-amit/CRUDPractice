@@ -21,6 +21,8 @@ namespace CRUDPractice
             {
                 Response.Redirect("Login.aspx");
             }
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetNoStore();
             
         }
 
