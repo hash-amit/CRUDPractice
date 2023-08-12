@@ -174,11 +174,11 @@ BEGIN
 	WHERE ID = @id
 END;
 
-CREATE PROC spDeleteRecord
+Alter PROC spDeleteRecord
 ( @id int )
 as
 begin
-	select * from tblUser where ID = @id
+	delete from tblUser where ID = @id
 end;
 
 CREATE PROC spCheckDuplicacy
@@ -188,4 +188,14 @@ CREATE PROC spCheckDuplicacy
 as
 begin
 	select * from tblUser where Email = @email
+end;
+
+Create proc spUpdatePass
+(
+	@new_pass varchar(60),
+	@id int
+)
+as
+begin
+Update tblUser set Password = @new_pass where ID = @id
 end;

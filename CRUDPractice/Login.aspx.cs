@@ -35,9 +35,31 @@ namespace CRUDPractice
             return true;
         }
 
+        public bool VerifyUser()
+        {
+            _connection.Open();
+            SqlCommand cmd = new SqlCommand("spVerifyUser", _connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@email", email_txt.Text);
+            cmd.Parameters.AddWithValue("@password", pass_txt.Text);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);   
+            DataTable dt = new DataTable(); 
+            adapter.Fill(dt);
+            _connection.Close();
+            if (dt.Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                msg_lbl.Text = "Sorry! You may have entered wrong credentials!";
+                return false;
+            }
+        }
+
         protected void Create_btn_Click(object sender, EventArgs e)
         {
-            if (CheckBlank())
+            if (CheckBlank() && VerifyUser())
             {
                 _connection.Open();
                 SqlCommand cmd = new SqlCommand("spCheckLoginCredentials", _connection);
